@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hockey's Market</title>
+    <!-- Google Fonts: Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .font-manrope {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="font-manrope text-[#131318] bg-white">
+    <!-- Header Section -->
+    <header class="w-11/12 max-w-[1170px] mx-auto pt-4 md:pt-8 pb-10">
+        <!-- Navbar -->
+        <nav class="navbar bg-transparent px-0 mb-6 lg:mb-8">
+            <div class="navbar-start items-center">
+                <!-- Mobile Dropdown Menu -->
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden p-0 mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-3 shadow-xl text-base">
+                        <li><a href="#" class="text-[#FF4240] font-bold">Home</a></li>
+                        <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">About</a></li>
+                        <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">Pages</a></li>
+                        <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">Blog</a></li>
+                        <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Brand Logo -->
+                <a href="#" class="text-2xl lg:text-3xl font-extrabold text-[#131318] tracking-tight">Hockey<span
+                        class="text-[#FF4240]">’</span>s</a>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1 gap-2 text-base">
+                    <li><a href="#" class="text-[#FF4240] font-bold">Home</a></li>
+                    <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">About</a></li>
+                    <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">Pages</a></li>
+                    <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">Blog</a></li>
+                    <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Navbar End (Search Icon & Get Ticket Button) -->
+            <div class="navbar-end gap-3 sm:gap-4 items-center">
+                <button
+                    class="btn btn-ghost btn-circle text-gray-500 hover:text-black hover:bg-gray-100 text-lg hidden sm:inline-flex">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <a href="#"
+                    class="btn bg-[#FF4240] hover:bg-[#e03735] text-white font-bold border-none px-5 sm:px-6 py-2.5 rounded-lg text-sm sm:text-base transition duration-200">
+                    Get Ticket
+                </a>
+            </div>
+        </nav>
+
+        <!-- Banner / Slider Section -->
+        <div class="carousel w-full rounded-2xl lg:rounded-3xl overflow-hidden shadow-sm">
+            <!-- Slide 1 -->
+            <div id="slide1" class="carousel-item relative w-full h-[320px] sm:h-[400px] md:h-[480px] lg:h-[550px]">
+                <img src="Images/1.png" alt="Hockey hero banner 1" class="w-full h-full object-cover" />
+
+                <!-- Slider Arrows (Bottom Left) -->
+                <div class="absolute left-4 bottom-4 sm:left-6 sm:bottom-6 md:left-8 md:bottom-8 flex gap-3 z-20">
+                    <a href="#slide3"
+                        class="btn btn-circle bg-[#131318] hover:bg-black text-white border-none btn-sm sm:btn-md shadow-md">❮</a>
+                    <a href="#slide2"
+                        class="btn btn-circle bg-[#131318] hover:bg-black text-white border-none btn-sm sm:btn-md shadow-md">❯</a>
+                </div>
+
+                <!-- Overlay Card (Bottom Right) -->
+                <div
+                    class="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 md:right-8 md:bottom-8 z-10 bg-[#131318] text-white p-4 sm:p-6 md:p-7 rounded-2xl max-w-[260px] sm:max-w-[360px] md:max-w-[460px] lg:max-w-[530px] shadow-2xl">
+                    <h3 class="text-sm sm:text-lg md:text-2xl font-extrabold text-white mb-2 leading-tight">
+                        Meet all the heroes from the field
+                    </h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
+                        Dit amet consectetur. Condimentum dignissim adipiscing aliquam turpis placerat dolor. Purus urna
+                        in sit nullam proin.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div id="slide2" class="carousel-item relative w-full h-[320px] sm:h-[400px] md:h-[480px] lg:h-[550px]">
+                <img src="Images/2.png" alt="Hockey hero banner 2" class="w-full h-full object-cover" />
+
+                <!-- Slider Arrows (Bottom Left) -->
+                <div class="absolute left-4 bottom-4 sm:left-6 sm:bottom-6 md:left-8 md:bottom-8 flex gap-3 z-20">
+                    <a href="#slide1"
+                        class="btn btn-circle bg-[#131318] hover:bg-black text-white border-none btn-sm sm:btn-md shadow-md">❮</a>
+                    <a href="#slide3"
+                        class="btn btn-circle bg-[#131318] hover:bg-black text-white border-none btn-sm sm:btn-md shadow-md">❯</a>
+                </div>
+
+                <!-- Overlay Card (Bottom Right) -->
+                <div
+                    class="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 md:right-8 md:bottom-8 z-10 bg-[#131318] text-white p-4 sm:p-6 md:p-7 rounded-2xl max-w-[260px] sm:max-w-[360px] md:max-w-[460px] lg:max-w-[530px] shadow-2xl">
+                    <h3 class="text-sm sm:text-lg md:text-2xl font-extrabold text-white mb-2 leading-tight">
+                        Meet all the heroes from the field
+                    </h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
+                        Dit amet consectetur. Condimentum dignissim adipiscing aliquam turpis placerat dolor. Purus urna
+                        in sit nullam proin.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div id="slide3" class="carousel-item relative w-full h-[320px] sm:h-[400px] md:h-[480px] lg:h-[550px]">
+                <img src="Images/3.png" alt="Hockey hero banner 3" class="w-full h-full object-cover" />
+
+                <!-- Slider Arrows (Bottom Left) -->
+                <div class="absolute left-4 bottom-4 sm:left-6 sm:bottom-6 md:left-8 md:bottom-8 flex gap-3 z-20">
+                    <a href="#slide2"
+                        class="btn btn-circle bg-[#131318] hover:bg-black text-white border-none btn-sm sm:btn-md shadow-md">❮</a>
+                    <a href="#slide1"
+                        class="btn btn-circle bg-[#131318] hover:bg-black text-white border-none btn-sm sm:btn-md shadow-md">❯</a>
+                </div>
+
+                <!-- Overlay Card (Bottom Right) -->
+                <div
+                    class="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 md:right-8 md:bottom-8 z-10 bg-[#131318] text-white p-4 sm:p-6 md:p-7 rounded-2xl max-w-[260px] sm:max-w-[360px] md:max-w-[460px] lg:max-w-[530px] shadow-2xl">
+                    <h3 class="text-sm sm:text-lg md:text-2xl font-extrabold text-white mb-2 leading-tight">
+                        Meet all the heroes from the field
+                    </h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
+                        Dit amet consectetur. Condimentum dignissim adipiscing aliquam turpis placerat dolor. Purus urna
+                        in sit nullam proin.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+    </footer>
+</body>
+
+</html>
