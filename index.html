@@ -4,96 +4,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hockey's Market</title>
+    <title>Hockey’s - Premium Field Hockey Club & Store</title>
+
     <!-- Google Fonts: Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
     <!-- DaisyUI CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF4240',
+                        'primary-hover': '#e03735',
+                        secondary: '#131318',
+                        'muted-text': 'rgba(19, 19, 24, 0.6)',
+                        'light-bg': 'rgba(19, 19, 24, 0.03)',
+                    },
+                    fontFamily: {
+                        manrope: ['Manrope', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        .font-manrope {
+        * {
             font-family: 'Manrope', sans-serif;
+        }
+
+        .carousel {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom section separator */
+        .section-header-divider {
+            border-top: 1px dashed rgba(19, 19, 24, 0.2);
+            border-bottom: 1px dashed rgba(19, 19, 24, 0.2);
         }
     </style>
 </head>
 
-<body class="font-manrope text-[#131318] bg-white">
+<body class="font-manrope text-secondary bg-white min-h-screen antialiased">
     <!-- Header Section -->
-    <header class="w-11/12 max-w-[1170px] mx-auto pt-4 md:pt-8 pb-10">
-        <!-- Navbar -->
-        <nav class="navbar bg-transparent px-0 mb-6 lg:mb-8">
+    <header class="w-11/12 max-w-[1170px] mx-auto pt-4 sm:pt-6 lg:pt-8 pb-6 sm:pb-10">
+        <!-- Responsive Navigation Bar -->
+        <nav class="navbar bg-transparent px-0 py-2 sm:py-3 mb-6 sm:mb-8">
+            <!-- Navbar Start: Mobile Hamburger & Brand Logo -->
             <div class="navbar-start items-center">
-                <!-- Mobile Dropdown Menu -->
+                <!-- Mobile Dropdown Menu (lg:hidden) -->
                 <div class="dropdown">
-                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden p-0 mr-3">
+                    <button tabindex="0" role="button" aria-label="Toggle navigation menu"
+                        class="btn btn-ghost btn-circle lg:hidden p-0 mr-1 sm:mr-2 text-secondary hover:bg-gray-100 focus:outline-none">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h8m-8 6h16" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
-                    </div>
+                    </button>
                     <ul tabindex="0"
-                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-3 shadow-xl text-base">
-                        <li><a href="#" class="text-[#FF4240] font-bold">Home</a></li>
-                        <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">About</a></li>
-                        <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">Pages</a></li>
-                        <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">Blog</a></li>
-                        <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">Contact</a></li>
+                        class="menu menu-sm dropdown-content bg-white rounded-2xl z-50 mt-3 w-56 p-4 shadow-2xl border border-gray-100 text-base font-semibold space-y-1">
+                        <li><a href="#" class="text-primary font-bold active:bg-primary/10 py-2">Home</a></li>
+                        <li><a href="#club" class="text-muted-text hover:text-primary transition-colors py-2">About</a>
+                        </li>
+                        <li><a href="#programs"
+                                class="text-muted-text hover:text-primary transition-colors py-2">Pages</a></li>
+                        <li><a href="#products"
+                                class="text-muted-text hover:text-primary transition-colors py-2">Blog</a></li>
+                        <li><a href="#contact"
+                                class="text-muted-text hover:text-primary transition-colors py-2">Contact</a></li>
                     </ul>
                 </div>
+
                 <!-- Brand Logo -->
-                <a href="#" class="text-2xl lg:text-3xl font-extrabold text-[#131318] tracking-tight">Hockey<span
-                        class="text-[#FF4240]">’</span>s</a>
+                <a href="#" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary tracking-tight">
+                    Hockey<span class="text-primary">’</span>s
+                </a>
             </div>
 
-            <!-- Desktop Navigation Links -->
+            <!-- Navbar Center: Desktop Navigation Links -->
             <div class="navbar-center hidden lg:flex">
-                <ul class="menu menu-horizontal px-1 gap-2 text-base">
-                    <li><a href="#" class="text-[#FF4240] font-bold">Home</a></li>
-                    <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">About</a></li>
-                    <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">Pages</a></li>
-                    <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">Blog</a></li>
-                    <li><a href="#" class="text-[#13131880] hover:text-[#FF4240] font-medium">Contact</a></li>
+                <ul class="menu menu-horizontal px-1 gap-6 lg:gap-8 text-base">
+                    <li><a href="#"
+                            class="text-primary font-bold hover:bg-transparent px-0 py-1 transition-colors">Home</a>
+                    </li>
+                    <li><a href="#club"
+                            class="text-muted-text hover:text-primary hover:bg-transparent font-medium px-0 py-1 transition-colors">About</a>
+                    </li>
+                    <li><a href="#programs"
+                            class="text-muted-text hover:text-primary hover:bg-transparent font-medium px-0 py-1 transition-colors">Pages</a>
+                    </li>
+                    <li><a href="#products"
+                            class="text-muted-text hover:text-primary hover:bg-transparent font-medium px-0 py-1 transition-colors">Blog</a>
+                    </li>
+                    <li><a href="#contact"
+                            class="text-muted-text hover:text-primary hover:bg-transparent font-medium px-0 py-1 transition-colors">Contact</a>
+                    </li>
                 </ul>
             </div>
 
-            <!-- Navbar End (Search Icon & Get Ticket Button) -->
-            <div class="navbar-end gap-3 sm:gap-4 items-center">
-                <button
-                    class="btn btn-ghost btn-circle text-gray-500 hover:text-black hover:bg-gray-100 text-lg hidden sm:inline-flex">
+            <!-- Navbar End: Search Button & Get Ticket CTA -->
+            <div class="navbar-end gap-2 sm:gap-4 items-center">
+                <!-- Search Icon Button -->
+                <button aria-label="Search"
+                    class="btn btn-ghost btn-circle text-gray-500 hover:text-secondary hover:bg-gray-100 text-lg hidden sm:inline-flex transition-colors">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
-                <a href="#"
-                    class="btn bg-[#FF4240] hover:bg-[#e03735] text-white font-bold border-none px-5 sm:px-6 py-2.5 rounded-lg text-sm sm:text-base transition duration-200">
+
+                <!-- Get Ticket CTA Button -->
+                <a href="#contact"
+                    class="btn bg-primary hover:bg-primary-hover text-white font-bold border-none px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm md:text-base transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 whitespace-nowrap">
                     Get Ticket
                 </a>
             </div>
         </nav>
 
-        <!-- Banner / Slider Section -->
-        <div class="carousel w-full rounded-2xl lg:rounded-3xl overflow-hidden shadow-sm">
+        <!-- Hero Carousel / Banner Section -->
+        <div class="carousel w-full">
             <!-- Slide 1 -->
-            <div id="slide1" class="carousel-item relative w-full h-[320px] sm:h-[400px] md:h-[480px] lg:h-[550px]">
-                <img src="Images/1.png" alt="Hockey hero banner 1" class="w-full h-full object-cover" />
+            <div id="slide1" class="carousel-item relative w-full flex flex-col md:block md:h-[480px] lg:h-[550px]">
+                <!-- Slide Image Container -->
+                <div
+                    class="relative w-full h-[240px] sm:h-[320px] md:h-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-md">
+                    <img src="Images/1.png" alt="Field Hockey Heroes 1"
+                        class="w-full h-full object-cover object-center" />
 
-                <!-- Slider Arrows (Bottom Left) -->
-                <div class="absolute left-4 bottom-4 sm:left-6 sm:bottom-6 md:left-8 md:bottom-8 flex gap-3 z-20">
-                    <a href="#slide3"
-                        class="btn btn-circle bg-[#131318] hover:bg-black text-white border-none btn-sm sm:btn-md shadow-md">❮</a>
-                    <a href="#slide2"
-                        class="btn btn-circle bg-[#131318] hover:bg-black text-white border-none btn-sm sm:btn-md shadow-md">❯</a>
+                    <!-- Navigation Controls -->
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 bottom-4 md:left-8 md:translate-x-0 md:bottom-8 flex gap-2.5 sm:gap-3 z-20">
+                        <a href="#slide3" aria-label="Previous Slide"
+                            class="btn btn-circle bg-secondary/90 hover:bg-secondary text-white border-none btn-sm sm:btn-md shadow-lg transition-transform hover:scale-105 active:scale-95">❮</a>
+                        <a href="#slide2" aria-label="Next Slide"
+                            class="btn btn-circle bg-secondary/90 hover:bg-secondary text-white border-none btn-sm sm:btn-md shadow-lg transition-transform hover:scale-105 active:scale-95">❯</a>
+                    </div>
                 </div>
 
-                <!-- Overlay Card (Bottom Right) -->
+                <!-- Overlay / Stacked Content Card with Gap on Mobile -->
                 <div
-                    class="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 md:right-8 md:bottom-8 z-10 bg-[#131318] text-white p-4 sm:p-6 md:p-7 rounded-2xl max-w-[260px] sm:max-w-[360px] md:max-w-[460px] lg:max-w-[530px] shadow-2xl">
-                    <h3 class="text-sm sm:text-lg md:text-2xl font-extrabold text-white mb-2 leading-tight">
+                    class="w-full md:w-auto bg-secondary text-white p-6 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl mt-4 sm:mt-6 md:mt-0 md:absolute md:right-8 md:bottom-8 md:max-w-[460px] lg:max-w-[530px] shadow-2xl backdrop-blur-sm z-10">
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-2.5 sm:mb-3 leading-snug">
                         Meet all the heroes from the field
                     </h3>
                     <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
@@ -104,21 +164,27 @@
             </div>
 
             <!-- Slide 2 -->
-            <div id="slide2" class="carousel-item relative w-full h-[320px] sm:h-[400px] md:h-[480px] lg:h-[550px]">
-                <img src="Images/2.png" alt="Hockey hero banner 2" class="w-full h-full object-cover" />
+            <div id="slide2" class="carousel-item relative w-full flex flex-col md:block md:h-[480px] lg:h-[550px]">
+                <!-- Slide Image Container -->
+                <div
+                    class="relative w-full h-[240px] sm:h-[320px] md:h-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-md">
+                    <img src="Images/2.png" alt="Field Hockey Heroes 2"
+                        class="w-full h-full object-cover object-center" />
 
-                <!-- Slider Arrows (Bottom Left) -->
-                <div class="absolute left-4 bottom-4 sm:left-6 sm:bottom-6 md:left-8 md:bottom-8 flex gap-3 z-20">
-                    <a href="#slide1"
-                        class="btn btn-circle bg-[#131318] hover:bg-black text-white border-none btn-sm sm:btn-md shadow-md">❮</a>
-                    <a href="#slide3"
-                        class="btn btn-circle bg-[#131318] hover:bg-black text-white border-none btn-sm sm:btn-md shadow-md">❯</a>
+                    <!-- Navigation Controls -->
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 bottom-4 md:left-8 md:translate-x-0 md:bottom-8 flex gap-2.5 sm:gap-3 z-20">
+                        <a href="#slide1" aria-label="Previous Slide"
+                            class="btn btn-circle bg-secondary/90 hover:bg-secondary text-white border-none btn-sm sm:btn-md shadow-lg transition-transform hover:scale-105 active:scale-95">❮</a>
+                        <a href="#slide3" aria-label="Next Slide"
+                            class="btn btn-circle bg-secondary/90 hover:bg-secondary text-white border-none btn-sm sm:btn-md shadow-lg transition-transform hover:scale-105 active:scale-95">❯</a>
+                    </div>
                 </div>
 
-                <!-- Overlay Card (Bottom Right) -->
+                <!-- Overlay / Stacked Content Card with Gap on Mobile -->
                 <div
-                    class="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 md:right-8 md:bottom-8 z-10 bg-[#131318] text-white p-4 sm:p-6 md:p-7 rounded-2xl max-w-[260px] sm:max-w-[360px] md:max-w-[460px] lg:max-w-[530px] shadow-2xl">
-                    <h3 class="text-sm sm:text-lg md:text-2xl font-extrabold text-white mb-2 leading-tight">
+                    class="w-full md:w-auto bg-secondary text-white p-6 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl mt-4 sm:mt-6 md:mt-0 md:absolute md:right-8 md:bottom-8 md:max-w-[460px] lg:max-w-[530px] shadow-2xl backdrop-blur-sm z-10">
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-2.5 sm:mb-3 leading-snug">
                         Meet all the heroes from the field
                     </h3>
                     <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
@@ -129,21 +195,27 @@
             </div>
 
             <!-- Slide 3 -->
-            <div id="slide3" class="carousel-item relative w-full h-[320px] sm:h-[400px] md:h-[480px] lg:h-[550px]">
-                <img src="Images/3.png" alt="Hockey hero banner 3" class="w-full h-full object-cover" />
+            <div id="slide3" class="carousel-item relative w-full flex flex-col md:block md:h-[480px] lg:h-[550px]">
+                <!-- Slide Image Container -->
+                <div
+                    class="relative w-full h-[240px] sm:h-[320px] md:h-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-md">
+                    <img src="Images/3.png" alt="Field Hockey Heroes 3"
+                        class="w-full h-full object-cover object-center" />
 
-                <!-- Slider Arrows (Bottom Left) -->
-                <div class="absolute left-4 bottom-4 sm:left-6 sm:bottom-6 md:left-8 md:bottom-8 flex gap-3 z-20">
-                    <a href="#slide2"
-                        class="btn btn-circle bg-[#131318] hover:bg-black text-white border-none btn-sm sm:btn-md shadow-md">❮</a>
-                    <a href="#slide1"
-                        class="btn btn-circle bg-[#131318] hover:bg-black text-white border-none btn-sm sm:btn-md shadow-md">❯</a>
+                    <!-- Navigation Controls -->
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 bottom-4 md:left-8 md:translate-x-0 md:bottom-8 flex gap-2.5 sm:gap-3 z-20">
+                        <a href="#slide2" aria-label="Previous Slide"
+                            class="btn btn-circle bg-secondary/90 hover:bg-secondary text-white border-none btn-sm sm:btn-md shadow-lg transition-transform hover:scale-105 active:scale-95">❮</a>
+                        <a href="#slide1" aria-label="Next Slide"
+                            class="btn btn-circle bg-secondary/90 hover:bg-secondary text-white border-none btn-sm sm:btn-md shadow-lg transition-transform hover:scale-105 active:scale-95">❯</a>
+                    </div>
                 </div>
 
-                <!-- Overlay Card (Bottom Right) -->
+                <!-- Overlay / Stacked Content Card with Gap on Mobile -->
                 <div
-                    class="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 md:right-8 md:bottom-8 z-10 bg-[#131318] text-white p-4 sm:p-6 md:p-7 rounded-2xl max-w-[260px] sm:max-w-[360px] md:max-w-[460px] lg:max-w-[530px] shadow-2xl">
-                    <h3 class="text-sm sm:text-lg md:text-2xl font-extrabold text-white mb-2 leading-tight">
+                    class="w-full md:w-auto bg-secondary text-white p-6 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl mt-4 sm:mt-6 md:mt-0 md:absolute md:right-8 md:bottom-8 md:max-w-[460px] lg:max-w-[530px] shadow-2xl backdrop-blur-sm z-10">
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-2.5 sm:mb-3 leading-snug">
                         Meet all the heroes from the field
                     </h3>
                     <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
@@ -156,12 +228,656 @@
     </header>
 
     <!-- Main Section -->
-    <main>
+    <main class="w-11/12 max-w-[1170px] mx-auto space-y-16 sm:space-y-24 pb-20">
+
+        <!-- 1. Professional Hockeys Club Section -->
+        <section id="club" class="scroll-mt-10">
+            <!-- Section Header with Dashed Dividers -->
+            <div class="section-header-divider py-8 sm:py-10 text-center max-w-[650px] mx-auto mb-10 sm:mb-14">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mb-3 sm:mb-4">
+                    Professional Hockeys Club
+                </h2>
+                <p class="text-muted-text text-xs sm:text-sm md:text-base leading-relaxed px-4">
+                    Dit amet consectetur. Condimentum dignissim adipiscing aliquam turpis placerat dolor. Purus urna in
+                    sit
+                    nullam proin.
+                </p>
+            </div>
+
+            <!-- Stats / Circular Progress Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                <!-- Stat 1: Prayer Facility -->
+                <div
+                    class="flex flex-col items-center text-center p-4 rounded-2xl hover:bg-light-bg/50 transition-colors">
+                    <div class="radial-progress text-[#FF4240] mb-5 font-bold"
+                        style="--value:87; --size:7rem; --thickness: 9px;" role="progressbar" aria-valuenow="87"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <span class="text-2xl font-extrabold text-secondary">87%</span>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-secondary mb-2">Prayer Facility</h3>
+                    <p class="text-muted-text text-xs sm:text-sm leading-relaxed max-w-[210px]">
+                        Amet consectetur. Condimentum dignissim adipiscing .
+                    </p>
+                </div>
+
+                <!-- Stat 2: Experienced Coach -->
+                <div
+                    class="flex flex-col items-center text-center p-4 rounded-2xl hover:bg-light-bg/50 transition-colors">
+                    <div class="radial-progress text-[#49D293] mb-5 font-bold"
+                        style="--value:95; --size:7rem; --thickness: 9px;" role="progressbar" aria-valuenow="95"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <span class="text-2xl font-extrabold text-secondary">95%</span>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-secondary mb-2">Experienced Coach</h3>
+                    <p class="text-muted-text text-xs sm:text-sm leading-relaxed max-w-[210px]">
+                        Amet consectetur. Condimentum dignissim adipiscing .
+                    </p>
+                </div>
+
+                <!-- Stat 3: Senior Player -->
+                <div
+                    class="flex flex-col items-center text-center p-4 rounded-2xl hover:bg-light-bg/50 transition-colors">
+                    <div class="radial-progress text-[#FFB546] mb-5 font-bold"
+                        style="--value:90; --size:7rem; --thickness: 9px;" role="progressbar" aria-valuenow="90"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <span class="text-2xl font-extrabold text-secondary">90%</span>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-secondary mb-2">Senior Player</h3>
+                    <p class="text-muted-text text-xs sm:text-sm leading-relaxed max-w-[210px]">
+                        Amet consectetur. Condimentum dignissim adipiscing .
+                    </p>
+                </div>
+
+                <!-- Stat 4: Training Ground -->
+                <div
+                    class="flex flex-col items-center text-center p-4 rounded-2xl hover:bg-light-bg/50 transition-colors">
+                    <div class="radial-progress text-[#4C8DF1] mb-5 font-bold"
+                        style="--value:80; --size:7rem; --thickness: 9px;" role="progressbar" aria-valuenow="80"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <span class="text-2xl font-extrabold text-secondary">80%</span>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-secondary mb-2">Training Ground</h3>
+                    <p class="text-muted-text text-xs sm:text-sm leading-relaxed max-w-[210px]">
+                        Amet consectetur. Condimentum dignissim adipiscing .
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Program Sections -->
+        <section id="programs" class="scroll-mt-10">
+            <!-- Section Header with Dashed Dividers -->
+            <div class="section-header-divider py-8 sm:py-10 text-center max-w-[650px] mx-auto mb-10 sm:mb-14">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mb-3 sm:mb-4">
+                    Program Sections
+                </h2>
+                <p class="text-muted-text text-xs sm:text-sm md:text-base leading-relaxed px-4">
+                    Dit amet consectetur. Condimentum dignissim adipiscing aliquam turpis placerat dolor. Purus urna in
+                    sit
+                    nullam proin.
+                </p>
+            </div>
+
+            <!-- Program Cards Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+                <!-- Card 1: Junior Program -->
+                <div
+                    class="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[340px] sm:min-h-[380px] flex items-end p-6 sm:p-8 lg:p-10 shadow-md group">
+                    <img src="Images/2.png" alt="Junior Program"
+                        class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30"></div>
+
+                    <div class="relative z-10 text-white max-w-lg">
+                        <h3 class="text-xl sm:text-2xl lg:text-3xl font-extrabold mb-2.5 sm:mb-3.5">Junior Program</h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
+                            Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit elit enim sagittis turpis in
+                            magna. Id et sed euismod natoque amet nunc morbi nulla. Tortor congue sed et in.
+                        </p>
+                        <a href="#contact"
+                            class="btn bg-primary hover:bg-primary-hover text-white border-none font-bold rounded-xl px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm transition-all duration-300 shadow-md hover:shadow-lg active:scale-95">
+                            Register Now!
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Teenager Program -->
+                <div
+                    class="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[340px] sm:min-h-[380px] flex items-end p-6 sm:p-8 lg:p-10 shadow-md group">
+                    <img src="Images/3.png" alt="Teenager Program"
+                        class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+                    <!-- Dark Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30"></div>
+
+                    <div class="relative z-10 text-white max-w-lg">
+                        <h3 class="text-xl sm:text-2xl lg:text-3xl font-extrabold mb-2.5 sm:mb-3.5">Teenager Program
+                        </h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
+                            Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit elit enim sagittis turpis in
+                            magna. Id et sed euismod natoque amet nunc morbi nulla. Tortor congue sed et in.
+                        </p>
+                        <a href="#contact"
+                            class="btn bg-primary hover:bg-primary-hover text-white border-none font-bold rounded-xl px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm transition-all duration-300 shadow-md hover:shadow-lg active:scale-95">
+                            Register Now!
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Professional Program (Full width across 2 cols on lg) -->
+                <div
+                    class="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[360px] sm:min-h-[420px] flex items-end p-6 sm:p-8 lg:p-12 shadow-md lg:col-span-2 group">
+                    <img src="Images/4.png" alt="Professional Program"
+                        class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+                    <!-- Dark Gradient Overlay -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-black/30 lg:bg-gradient-to-r lg:from-black/95 lg:via-black/70 lg:to-transparent">
+                    </div>
+
+                    <div class="relative z-10 text-white max-w-xl">
+                        <h3 class="text-xl sm:text-2xl lg:text-3xl font-extrabold mb-2.5 sm:mb-3.5">Professional Program
+                        </h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
+                            Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit elit enim sagittis turpis in
+                            magna. Id et sed euismod natoque amet nunc morbi nulla. Tortor congue sed et in.
+                        </p>
+                        <a href="#contact"
+                            class="btn bg-primary hover:bg-primary-hover text-white border-none font-bold rounded-xl px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm transition-all duration-300 shadow-md hover:shadow-lg active:scale-95">
+                            Register Now!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Our New Products Section -->
+        <section id="products" class="scroll-mt-10">
+            <!-- Section Header with Dashed Dividers -->
+            <div class="section-header-divider py-8 sm:py-10 text-center max-w-[650px] mx-auto mb-10 sm:mb-14">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mb-3 sm:mb-4">
+                    Our New Products
+                </h2>
+                <p class="text-muted-text text-xs sm:text-sm md:text-base leading-relaxed px-4">
+                    Dit amet consectetur. Condimentum dignissim adipiscing aliquam turpis placerat dolor. Purus urna in
+                    sit
+                    nullam proin.
+                </p>
+            </div>
+
+            <!-- Products Grid: 2 Columns on LG/MD -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Product Card 1: Red Jacket / World Cup Flags Football -->
+                <div
+                    class="border border-[#131318]/10 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4 sm:gap-5 hover:border-primary/40 hover:shadow-lg transition-all duration-300 bg-white">
+                    <div
+                        class="bg-light-bg rounded-xl w-full sm:w-44 h-44 flex items-center justify-center p-3 flex-shrink-0">
+                        <img src="Images/5.png" alt="World Cup Flags Football"
+                            class="max-h-full max-w-full object-contain hover:scale-105 transition-transform" />
+                    </div>
+                    <div class="flex-1 w-full text-left">
+                        <!-- Rating & Views Bar -->
+                        <div class="flex items-center gap-4 text-xs sm:text-sm text-muted-text mb-2">
+                            <span class="flex items-center gap-1 font-semibold text-secondary">
+                                <i class="fa-solid fa-star text-[#FFB546]"></i> 5.0
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i class="fa-regular fa-eye text-muted-text"></i> 20
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i class="fa-regular fa-heart text-muted-text"></i> 200
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-extrabold text-secondary mb-1.5 leading-snug">
+                            World Cup Flags Football
+                        </h3>
+                        <p class="text-muted-text text-xs sm:text-sm leading-relaxed mb-3">
+                            Dolor sit amet consectetur. Ut urna diam quis sagittis.
+                        </p>
+                        <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-gray-100">
+                            <span class="text-primary font-extrabold text-sm sm:text-base">Price - $22.00</span>
+                            <span class="text-muted-text text-xs flex items-center gap-1.5">
+                                <i class="fa-solid fa-truck text-muted-text"></i> Delivery Fee : Free
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2: Green Ball / World Cup Flags Football -->
+                <div
+                    class="border border-[#131318]/10 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4 sm:gap-5 hover:border-primary/40 hover:shadow-lg transition-all duration-300 bg-white">
+                    <div
+                        class="bg-light-bg rounded-xl w-full sm:w-44 h-44 flex items-center justify-center p-3 flex-shrink-0">
+                        <img src="Images/6.png" alt="World Cup Flags Football"
+                            class="max-h-full max-w-full object-contain hover:scale-105 transition-transform" />
+                    </div>
+                    <div class="flex-1 w-full text-left">
+                        <!-- Rating & Views Bar -->
+                        <div class="flex items-center gap-4 text-xs sm:text-sm text-muted-text mb-2">
+                            <span class="flex items-center gap-1 font-semibold text-secondary">
+                                <i class="fa-solid fa-star text-[#FFB546]"></i> 5.0
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i class="fa-regular fa-eye text-muted-text"></i> 20
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i class="fa-regular fa-heart text-muted-text"></i> 200
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-extrabold text-secondary mb-1.5 leading-snug">
+                            World Cup Flags Football
+                        </h3>
+                        <p class="text-muted-text text-xs sm:text-sm leading-relaxed mb-3">
+                            Dolor sit amet consectetur. Ut urna diam quis sagittis.
+                        </p>
+                        <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-gray-100">
+                            <span class="text-primary font-extrabold text-sm sm:text-base">Price - $22.00</span>
+                            <span class="text-muted-text text-xs flex items-center gap-1.5">
+                                <i class="fa-solid fa-truck text-muted-text"></i> Delivery Fee : Free
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3: Cap For Hockeys -->
+                <div
+                    class="border border-[#131318]/10 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4 sm:gap-5 hover:border-primary/40 hover:shadow-lg transition-all duration-300 bg-white">
+                    <div
+                        class="bg-light-bg rounded-xl w-full sm:w-44 h-44 flex items-center justify-center p-3 flex-shrink-0">
+                        <img src="Images/7.png" alt="Cap For Hockeys"
+                            class="max-h-full max-w-full object-contain hover:scale-105 transition-transform" />
+                    </div>
+                    <div class="flex-1 w-full text-left">
+                        <!-- Rating & Views Bar -->
+                        <div class="flex items-center gap-4 text-xs sm:text-sm text-muted-text mb-2">
+                            <span class="flex items-center gap-1 font-semibold text-secondary">
+                                <i class="fa-solid fa-star text-[#FFB546]"></i> 5.0
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i class="fa-regular fa-eye text-muted-text"></i> 20
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i class="fa-regular fa-heart text-muted-text"></i> 200
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-extrabold text-secondary mb-1.5 leading-snug">
+                            Cap For Hockeys
+                        </h3>
+                        <p class="text-muted-text text-xs sm:text-sm leading-relaxed mb-3">
+                            Dolor sit amet consectetur. Ut urna diam quis sagittis.
+                        </p>
+                        <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-gray-100">
+                            <span class="text-primary font-extrabold text-sm sm:text-base">Price - $22.00</span>
+                            <span class="text-muted-text text-xs flex items-center gap-1.5">
+                                <i class="fa-solid fa-truck text-muted-text"></i> Delivery Fee : Free
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4: Teal Kit Jersey / World Cup Flags Football -->
+                <div
+                    class="border border-[#131318]/10 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4 sm:gap-5 hover:border-primary/40 hover:shadow-lg transition-all duration-300 bg-white">
+                    <div
+                        class="bg-light-bg rounded-xl w-full sm:w-44 h-44 flex items-center justify-center p-3 flex-shrink-0">
+                        <img src="Images/8.png" alt="World Cup Flags Football"
+                            class="max-h-full max-w-full object-contain hover:scale-105 transition-transform" />
+                    </div>
+                    <div class="flex-1 w-full text-left">
+                        <!-- Rating & Views Bar -->
+                        <div class="flex items-center gap-4 text-xs sm:text-sm text-muted-text mb-2">
+                            <span class="flex items-center gap-1 font-semibold text-secondary">
+                                <i class="fa-solid fa-star text-[#FFB546]"></i> 5.0
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i class="fa-regular fa-eye text-muted-text"></i> 20
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i class="fa-regular fa-heart text-muted-text"></i> 200
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-extrabold text-secondary mb-1.5 leading-snug">
+                            World Cup Flags Football
+                        </h3>
+                        <p class="text-muted-text text-xs sm:text-sm leading-relaxed mb-3">
+                            Dolor sit amet consectetur. Ut urna diam quis sagittis.
+                        </p>
+                        <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-gray-100">
+                            <span class="text-primary font-extrabold text-sm sm:text-base">Price - $22.00</span>
+                            <span class="text-muted-text text-xs flex items-center gap-1.5">
+                                <i class="fa-solid fa-truck text-muted-text"></i> Delivery Fee : Free
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 5: Helmet / World Cup Flags Football -->
+                <div
+                    class="border border-[#131318]/10 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4 sm:gap-5 hover:border-primary/40 hover:shadow-lg transition-all duration-300 bg-white">
+                    <div
+                        class="bg-light-bg rounded-xl w-full sm:w-44 h-44 flex items-center justify-center p-3 flex-shrink-0">
+                        <img src="Images/9.png" alt="World Cup Flags Football"
+                            class="max-h-full max-w-full object-contain hover:scale-105 transition-transform" />
+                    </div>
+                    <div class="flex-1 w-full text-left">
+                        <!-- Rating & Views Bar -->
+                        <div class="flex items-center gap-4 text-xs sm:text-sm text-muted-text mb-2">
+                            <span class="flex items-center gap-1 font-semibold text-secondary">
+                                <i class="fa-solid fa-star text-[#FFB546]"></i> 5.0
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i class="fa-regular fa-eye text-muted-text"></i> 20
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i class="fa-regular fa-heart text-muted-text"></i> 200
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-extrabold text-secondary mb-1.5 leading-snug">
+                            World Cup Flags Football
+                        </h3>
+                        <p class="text-muted-text text-xs sm:text-sm leading-relaxed mb-3">
+                            Dolor sit amet consectetur. Ut urna diam quis sagittis.
+                        </p>
+                        <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-gray-100">
+                            <span class="text-primary font-extrabold text-sm sm:text-base">Price - $22.00</span>
+                            <span class="text-muted-text text-xs flex items-center gap-1.5">
+                                <i class="fa-solid fa-truck text-muted-text"></i> Delivery Fee : Free
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 6: Swirl Soccer Ball / World Cup Flags Football -->
+                <div
+                    class="border border-[#131318]/10 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4 sm:gap-5 hover:border-primary/40 hover:shadow-lg transition-all duration-300 bg-white">
+                    <div
+                        class="bg-light-bg rounded-xl w-full sm:w-44 h-44 flex items-center justify-center p-3 flex-shrink-0">
+                        <img src="Images/10.png" alt="World Cup Flags Football"
+                            class="max-h-full max-w-full object-contain hover:scale-105 transition-transform" />
+                    </div>
+                    <div class="flex-1 w-full text-left">
+                        <!-- Rating & Views Bar -->
+                        <div class="flex items-center gap-4 text-xs sm:text-sm text-muted-text mb-2">
+                            <span class="flex items-center gap-1 font-semibold text-secondary">
+                                <i class="fa-solid fa-star text-[#FFB546]"></i> 5.0
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i class="fa-regular fa-eye text-muted-text"></i> 20
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i class="fa-regular fa-heart text-muted-text"></i> 200
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-extrabold text-secondary mb-1.5 leading-snug">
+                            World Cup Flags Football
+                        </h3>
+                        <p class="text-muted-text text-xs sm:text-sm leading-relaxed mb-3">
+                            Dolor sit amet consectetur. Ut urna diam quis sagittis.
+                        </p>
+                        <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-gray-100">
+                            <span class="text-primary font-extrabold text-sm sm:text-base">Price - $22.00</span>
+                            <span class="text-muted-text text-xs flex items-center gap-1.5">
+                                <i class="fa-solid fa-truck text-muted-text"></i> Delivery Fee : Free
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Clients Question Section (FAQ) -->
+        <section id="faq" class="scroll-mt-10">
+            <!-- Section Header with Dashed Dividers -->
+            <div class="section-header-divider py-8 sm:py-10 text-center max-w-[650px] mx-auto mb-10 sm:mb-14">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mb-3 sm:mb-4">
+                    Clients Question
+                </h2>
+                <p class="text-muted-text text-xs sm:text-sm md:text-base leading-relaxed px-4">
+                    Dit amet consectetur. Condimentum dignissim adipiscing aliquam turpis placerat dolor. Purus urna in
+                    sit
+                    nullam proin.
+                </p>
+            </div>
+
+            <!-- FAQ Container with Border -->
+            <div
+                class="border border-[#131318]/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center bg-white shadow-sm">
+                <!-- Left Column: Question Mark Visual -->
+                <div class="lg:col-span-5 flex justify-center items-center h-full">
+                    <img src="Images/11.png" alt="Frequently Asked Questions"
+                        class="w-full max-w-[360px] lg:max-w-none h-auto object-contain rounded-2xl" />
+                </div>
+
+                <!-- Right Column: DaisyUI Accordion Items -->
+                <div class="lg:col-span-7 flex flex-col divide-y divide-gray-100">
+                    <!-- Item 1: Our Equipment (Open by default) -->
+                    <div class="collapse collapse-plus bg-transparent group">
+                        <input type="radio" name="faq-accordion" checked="checked" />
+                        <div
+                            class="collapse-title text-base sm:text-lg font-bold text-secondary px-0 py-4 group-hover:text-primary transition-colors">
+                            Our Equipment
+                        </div>
+                        <div
+                            class="collapse-content px-0 text-muted-text text-xs sm:text-sm leading-relaxed font-normal">
+                            <p>
+                                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit elit enim sagittis turpis
+                                in magna.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Hockey Training -->
+                    <div class="collapse collapse-plus bg-transparent group">
+                        <input type="radio" name="faq-accordion" />
+                        <div
+                            class="collapse-title text-base sm:text-lg font-bold text-secondary px-0 py-4 group-hover:text-primary transition-colors">
+                            Hockey Training
+                        </div>
+                        <div
+                            class="collapse-content px-0 text-muted-text text-xs sm:text-sm leading-relaxed font-normal">
+                            <p>
+                                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit elit enim sagittis turpis
+                                in magna.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Private Lessons -->
+                    <div class="collapse collapse-plus bg-transparent group">
+                        <input type="radio" name="faq-accordion" />
+                        <div
+                            class="collapse-title text-base sm:text-lg font-bold text-secondary px-0 py-4 group-hover:text-primary transition-colors">
+                            Private Lessons
+                        </div>
+                        <div
+                            class="collapse-content px-0 text-muted-text text-xs sm:text-sm leading-relaxed font-normal">
+                            <p>
+                                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit elit enim sagittis turpis
+                                in magna.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Ski Touring -->
+                    <div class="collapse collapse-plus bg-transparent group">
+                        <input type="radio" name="faq-accordion" />
+                        <div
+                            class="collapse-title text-base sm:text-lg font-bold text-secondary px-0 py-4 group-hover:text-primary transition-colors">
+                            Ski Touring
+                        </div>
+                        <div
+                            class="collapse-content px-0 text-muted-text text-xs sm:text-sm leading-relaxed font-normal">
+                            <p>
+                                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit elit enim sagittis turpis
+                                in magna.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 5: Booking -->
+                    <div class="collapse collapse-plus bg-transparent group">
+                        <input type="radio" name="faq-accordion" />
+                        <div
+                            class="collapse-title text-base sm:text-lg font-bold text-secondary px-0 py-4 group-hover:text-primary transition-colors">
+                            Booking
+                        </div>
+                        <div
+                            class="collapse-content px-0 text-muted-text text-xs sm:text-sm leading-relaxed font-normal">
+                            <p>
+                                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit elit enim sagittis turpis
+                                in magna.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 6: Pricings -->
+                    <div class="collapse collapse-plus bg-transparent group">
+                        <input type="radio" name="faq-accordion" />
+                        <div
+                            class="collapse-title text-base sm:text-lg font-bold text-secondary px-0 py-4 group-hover:text-primary transition-colors">
+                            Pricings
+                        </div>
+                        <div
+                            class="collapse-content px-0 text-muted-text text-xs sm:text-sm leading-relaxed font-normal">
+                            <p>
+                                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit elit enim sagittis turpis
+                                in magna.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Get In Touch Section -->
+        <section id="contact" class="scroll-mt-10">
+            <!-- Section Header with Dashed Dividers -->
+            <div class="section-header-divider py-8 sm:py-10 text-center max-w-[650px] mx-auto mb-10 sm:mb-14">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mb-3 sm:mb-4">
+                    Get In Touch
+                </h2>
+                <p class="text-muted-text text-xs sm:text-sm md:text-base leading-relaxed px-4">
+                    Dit amet consectetur. Condimentum dignissim adipiscing aliquam turpis placerat dolor. Purus urna in
+                    sit
+                    nullam proin.
+                </p>
+            </div>
+
+            <!-- Contact & Form Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-8">
+                <!-- Left Column: 3 Contact Info Cards -->
+                <div class="lg:col-span-5 flex flex-col gap-5">
+                    <!-- Phone Card -->
+                    <div
+                        class="border border-[#BCED6D]/30 bg-[#BCED6D]/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-center">
+                        <img src="Images/Group 1171275317.png" alt="Phone Icon" class="w-11 h-11 object-contain mb-5" />
+                        <span class="text-xs sm:text-sm text-muted-text mb-1">Phone Number :</span>
+                        <a href="tel:+62123321543"
+                            class="text-base sm:text-lg md:text-xl font-extrabold text-secondary hover:text-primary transition-colors">
+                            (+62) 123-321-543
+                        </a>
+                    </div>
+
+                    <!-- Email Card -->
+                    <div
+                        class="border border-[#FDDD5F]/30 bg-[#FDDD5F]/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-center">
+                        <img src="Images/Group 1171275318.png" alt="Email Icon" class="w-11 h-11 object-contain mb-5" />
+                        <span class="text-xs sm:text-sm text-muted-text mb-1">Email :</span>
+                        <a href="mailto:hockeys@support.com"
+                            class="text-base sm:text-lg md:text-xl font-extrabold text-secondary hover:text-primary transition-colors">
+                            hockeys@support.com
+                        </a>
+                    </div>
+
+                    <!-- Location Card -->
+                    <div
+                        class="border border-[#629CF3]/30 bg-[#629CF3]/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-center">
+                        <img src="Images/Group 1171275321.png" alt="Location Icon"
+                            class="w-11 h-11 object-contain mb-5" />
+                        <span class="text-xs sm:text-sm text-muted-text mb-1">Location :</span>
+                        <p class="text-base sm:text-lg md:text-xl font-extrabold text-secondary">
+                            152/1 Mohakhali Wireless Gate
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Contact Form -->
+                <div class="lg:col-span-7 flex flex-col justify-between">
+                    <form
+                        onsubmit="event.preventDefault(); alert('Thank you for reaching out! We will get back to you soon.');"
+                        class="space-y-4 sm:space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                            <!-- Name -->
+                            <div class="space-y-2">
+                                <label class="text-sm sm:text-base font-bold text-secondary">Your Name</label>
+                                <input type="text" required placeholder="Enter your full name"
+                                    class="input bg-light-bg focus:bg-white border-transparent focus:border-primary/40 focus:outline-none rounded-xl w-full p-4 text-xs sm:text-sm text-secondary font-medium transition-all" />
+                            </div>
+
+                            <!-- Email -->
+                            <div class="space-y-2">
+                                <label class="text-sm sm:text-base font-bold text-secondary">Your Email</label>
+                                <input type="email" required placeholder="Enter your email"
+                                    class="input bg-light-bg focus:bg-white border-transparent focus:border-primary/40 focus:outline-none rounded-xl w-full p-4 text-xs sm:text-sm text-secondary font-medium transition-all" />
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                            <!-- Subject -->
+                            <div class="space-y-2">
+                                <label class="text-sm sm:text-base font-bold text-secondary">Subject</label>
+                                <input type="text" required placeholder="Enter your subject"
+                                    class="input bg-light-bg focus:bg-white border-transparent focus:border-primary/40 focus:outline-none rounded-xl w-full p-4 text-xs sm:text-sm text-secondary font-medium transition-all" />
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="space-y-2">
+                                <label class="text-sm sm:text-base font-bold text-secondary">Phone Number</label>
+                                <input type="tel" required placeholder="Enter your phone number"
+                                    class="input bg-light-bg focus:bg-white border-transparent focus:border-primary/40 focus:outline-none rounded-xl w-full p-4 text-xs sm:text-sm text-secondary font-medium transition-all" />
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="space-y-2">
+                            <label class="text-sm sm:text-base font-bold text-secondary">Message</label>
+                            <textarea required rows="6" placeholder="Write your message"
+                                class="textarea bg-light-bg focus:bg-white border-transparent focus:border-primary/40 focus:outline-none rounded-xl w-full p-4 text-xs sm:text-sm text-secondary font-medium resize-none transition-all"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit"
+                            class="btn bg-primary hover:bg-primary-hover text-white w-full border-none rounded-xl font-bold text-sm sm:text-base py-3 sm:py-3.5 shadow-md hover:shadow-lg transition-all active:scale-[0.99]">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Social Media Bar (Centered Box at bottom of Get In Touch) -->
+            <div class="bg-light-bg rounded-2xl p-6 sm:p-8 text-center mt-6">
+                <h3 class="text-lg sm:text-xl font-extrabold text-secondary mb-4">Social Media</h3>
+                <div class="flex justify-center items-center gap-6 sm:gap-8 text-secondary">
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"
+                        class="hover:text-primary hover:scale-110 transition-all text-lg sm:text-xl">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+                        class="hover:text-primary hover:scale-110 transition-all text-lg sm:text-xl">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                        class="hover:text-primary hover:scale-110 transition-all text-lg sm:text-xl">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                        class="hover:text-primary hover:scale-110 transition-all text-lg sm:text-xl">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer Section -->
-    <footer>
-    </footer>
 </body>
 
 </html>
